@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src='https://unpkg.com/react@18/umd/react.development.js'></script>
+    <script crossorigin src='https://unpkg.com/react-dom@18/umd/react-dom.development.js'></script>
+    <script src='https://unpkg.com/@babel/standalone/babel.min.js'></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            height: 100hv;
+            background: skyblue;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .header {
+            width: 100%;
+            height: 160px;
+            background: #FFA7A7;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: left;
+            
+        }
+
+        .header h1{
+            font-size: 7vw;
+            margin-top: 55px;
+        }
+
+        .content {
+            
+            height: 810px;
+            flex-grow: 1;
+            background: #E8FEFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .image + label{
+            width: 57px;
+            height: 60px;
+            position: fixed;
+            right: 0;
+            top: calc(50%-25px);
+            transition: all.35s;
+            cursor: pointer;
+            background-size: cover;
+            background-image: url('image2.png');
+        }
+        .image :checked + label + div{
+            z-index: 2;
+            right: 300px;
+        }
+
+        .sidebar {
+            width:300px;
+            height:100%;
+            background: #222;
+            position: fixed;
+            top:0;
+            right: -300px;
+            z-index: 1;
+            transition: all.35s;
+        }
+
+        .image :checked + label + div {
+            right:0;
+        }
+       
+        .footer {
+            width: 100%;
+            height: 210px;
+            display: flex;
+            background: #D6FDFF;
+            color: black;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+        }
+
+
+      
+
+       
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const { useState } = React;
+
+        function Header() {
+
+            return (
+                <div className="header">
+                    <h1>Yongmin's Introduce</h1>    
+                </div>
+            );
+        }
+      
+        function Content() {
+
+            return (
+                <div className="content">
+                    <div className="image">
+                    </div>
+                </div>
+            );
+        }
+       
+        
+
+     
+        
+        
+
+        function Footer() {
+            return (
+                <div className="footer">
+                </div>
+            );
+        }
+
+        function MainApp() {
+
+            return (
+                <div className="container">
+                        <Header/>
+                        <Content/>
+                        <Footer/>
+                </div>
+            );
+        }
+
+        /* 17 버전 */
+        // ReactDOM.render(<TodoApp/>, document.getElementById('root'));
+
+        /* 18 버전 */
+        ReactDOM.createRoot(document.getElementById('root')).render(
+            <MainApp />
+        );
+    </script>
+</body>
+</html>

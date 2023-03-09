@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src='https://unpkg.com/react@18/umd/react.development.js'></script>
+    <script crossorigin src='https://unpkg.com/react-dom@18/umd/react-dom.development.js'></script>
+    <script src='https://unpkg.com/@babel/standalone/babel.min.js'></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            height: 100hv;
+            background: skyblue;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .header {
+            width: 100%;
+            height: 160px;
+            background: #FFA7A7;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: left;
+            
+        }
+
+        .header h1{
+            font-size: 6vw;
+            margin-top: 55px;
+        }
+
+        .content {
+            
+            height: 810px;
+            flex-grow: 1;
+            background: #E8FEFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .content1 {
+            height: 810px;
+            width: 50%;
+            background: #E8FEFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .content2 {
+            height: 810px;
+            width: 50%;
+            background: #E8FEFF;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            margin-left: 10%;
+            
+        }
+
+        .image {
+            width: 490px;
+            height: 450px;
+            background-size: cover;
+            background-image: url('pic.png');
+        }
+
+        .footer {
+            width: 100%;
+            height: 210px;
+            display: flex;
+            background: #D6FDFF;
+            color: black;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+        }
+
+
+      
+
+       
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const { useState } = React;
+
+        function Header() {
+
+            return (
+                <div className="header">
+                    <h1>development grow loadmap</h1>    
+                </div>
+            );
+        }
+      
+        function Content() {
+
+            return (
+                <div className="content">
+                    
+                </div>
+            );
+        }
+         function Content1() {
+
+            return (
+                <div className="content1">
+                    <div className="image">
+                    </div>
+                </div>
+            );
+        }
+
+         function Content2() {
+
+            return (
+                <div className="content2">
+                    <div>나이 : 24</div>
+                    <br/>   
+                    <div>거주지 : 판교</div>
+                    <br/>   
+                    <div>취미 : 방탈출, 여행</div>
+                    <br/>   
+                    <div>긍정적인 에너지를 가지고 있으며,</div>
+                    <br/>   
+                    <div>어려운 문제가 있어도 끝까지 긍정적으로</div>
+                    <br/>   
+                    <div>해결해버리는 성격입니다!!</div>
+                </div>
+            );
+        }
+      
+      
+      
+        
+
+        function Footer() {
+            return (
+                <div className="footer">
+                </div>
+            );
+        }
+
+        function MainApp() {
+
+            return (
+                <div className="container">
+                        <Header/>
+                        <div className="content">
+                        <Content1/>
+                        <Content2/>
+                        </div>
+                <Footer/>
+                </div>
+            );
+        }
+
+        /* 17 버전 */
+        // ReactDOM.render(<TodoApp/>, document.getElementById('root'));
+
+        /* 18 버전 */
+        ReactDOM.createRoot(document.getElementById('root')).render(
+            <MainApp />
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src='https://unpkg.com/react@18/umd/react.development.js'></script>
+    <script crossorigin src='https://unpkg.com/react-dom@18/umd/react-dom.development.js'></script>
+    <script src='https://unpkg.com/@babel/standalone/babel.min.js'></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            height: 100hv;
+            background: skyblue;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .content{
+            
+            height: 910px;
+            flex-grow: 1;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .content1{
+            
+            height: 400px;
+            background: white;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        
+        .content2{
+            
+            height: 510px;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .image {
+            height: 510px;
+            width: 300px;
+            background-size: cover;
+            background-image: url('그림1.png');
+        }
+
+    
+        .footer {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            background: #D6FDFF;
+            color: black;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const { useState, useEffect } = React;
+        
+        function Content() {
+
+            return (
+                <div className="content">
+                </div>
+            );
+        }
+
+        function Content1() {
+            const [state, setState] = useState({
+                username: '',
+                password: '',
+                passwordcheck:''
+            });
+
+        const onChangeHandler = (e) => {
+            setState({
+            ...state,
+            [e.target.name]: e.target.value,
+            });
+        };
+
+        const onClickHandler = () => {  
+            check(state);
+        };
+
+        function check(state) {
+            if (state.password === state.passwordcheck) {
+                alert(`회원가입에 성공하셨습니다.`);
+                setState({
+                    username: "",
+                    password: "",
+                    passwordcheck: "",
+                    });
+                } else {
+                alert(`비밀번호가 일치하지 않습니다.`);
+                }
+            }
+            return (
+                <div className="content1">
+                <h1>회원가입</h1>
+                <label>아이디 : </label>
+                <input
+                type="text"
+                name="username"
+                placeholder="아이디를 입력하세요"
+                value={state.username}
+                onChange={onChangeHandler}
+                />
+                <br />
+                <label>비밀번호 : </label>
+                <input
+                type="password"
+                name="password"
+                placeholder="비밀번호를 입력하세요"
+                value={state.password}
+                onChange={onChangeHandler}
+                />
+                <br />
+                <label>비밀번호 확인: </label>
+                <input
+                type="password"
+                name="passwordcheck"
+                placeholder="비밀번호를 확인하세요"
+                value={state.passwordcheck}
+                onChange={onChangeHandler}
+                />
+                <br />
+                <button onClick={onClickHandler}>회원가입</button>
+            </div>
+        );
+        }
+        
+        
+        function Content2() {
+
+            return (
+                <div className="content2">
+                    <div className="image">
+                    </div> 
+                </div>
+            );
+        }
+
+        function PwdCheck({ text, isText, setText }) {
+
+        const [inputpwd, setpwdcheck] = useState('');
+
+        useEffect(
+            () => {
+            if (inputpwd === '1234') {
+                setIsCheck(true);
+            } else {
+                setIsCheck(false);
+            }
+        },
+        [inputpwd, setIsCheck]
+    );
+    return (
+        <div className="content">
+            <h1>Enter Password to Sign Up</h1>
+            <input
+                type="password"
+                name="passwordcheck"
+                placeholder="Enter Password"
+                value={inputpwd}
+                onChange={(e) => setPwdCheck(e.target.value)}
+            />
+        </div>
+    );
+}
+    
+        
+
+        function Footer() {
+            return (
+                <div className="footer">
+                </div>
+            );
+        }
+
+        function MainApp() {
+
+            const [isShow, setIsShow] = useState(false);
+            const [isCheck, setIsCheck] = useState(false);
+        
+            return (
+                <>
+            {isShow && (
+                <PwdCheck isCheck={isCheck} setIsCheck={setIsCheck} />
+            )}
+            <div className="container">
+                <div className="Content">
+                    <Content1 setIsShow={setIsShow} />
+                    <Content2 />
+                </div>
+                <Footer />
+            </div>
+        </>
+    );
+}
+
+        /* 17 버전 */
+        // ReactDOM.render(<TodoApp/>, document.getElementById('root'));
+
+        /* 18 버전 */
+        ReactDOM.createRoot(document.getElementById('root')).render(
+            <MainApp />
+        );
+    </script>
+</body>
+</html>

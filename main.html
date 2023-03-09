@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src='https://unpkg.com/react@18/umd/react.development.js'></script>
+    <script crossorigin src='https://unpkg.com/react-dom@18/umd/react-dom.development.js'></script>
+    <script src='https://unpkg.com/@babel/standalone/babel.min.js'></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            height: 100hv;
+            background: skyblue;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .header {
+            width: 60%;
+            height: 160px;
+            background: #FFA7A7;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: left;
+            
+        }
+
+        .header h1 {
+            font-size: 80px;
+        }
+        
+        .top {
+            display: flex;
+        }
+
+        .menubar {
+            display: flex;
+            width: 20%;
+            height: 160px;
+            background: #FFA7A7;
+            color:  white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .menubar div {
+            font-size: 20px;
+            color: white;
+        }
+        
+        a {
+            color: white;
+        }
+
+        .menubar2 {
+            display: flex;
+            width: 20%;
+            height: 160px;
+            background: #FFA7A7;
+            color:  white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .menubar2 div {
+            font-size: 20px;
+            color: white;
+        }
+
+        .content {
+            
+            height: 810px;
+            flex-grow: 1;
+            background: #E8FEFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .content1 {
+            display: flex;
+            height: 170px;
+            background: #E8FEFF;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            flex-direction: column;
+        }
+        
+        .content1 div {
+            font-size: 80px;
+            margin-left: 25vh;
+        }
+
+        .content2 {
+            display: flex;
+            height: 170px;
+            background: #E8FEFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .content2 div {
+            font-size: 80px;
+        }
+
+        .content3 {
+            display: flex;
+            height: 170px;
+            background: #E8FEFF;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            flex-direction: column;
+
+        }
+
+        .content3 div {
+            font-size: 80px;
+            margin-right: 25vh;
+        }
+
+        .content4 {
+            display: flex;
+            height: 300px;
+            background: #E8FEFF;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            flex-direction: column;
+
+        }
+
+        .image {
+            width: 210px;
+            height: 250px;
+            background-color: #E8FEFF;
+            background-size: cover;
+            background-image: url('image1.png');
+        }
+
+       
+        .footer {
+            width: 100%;
+            height: 210px;
+            display: flex;
+            background: #D6FDFF;
+            color: black;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+        }
+
+        .footer p {
+            font-size: 44px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    
+
+        const { useState } = React;
+
+        function Header() {
+
+            return (
+                <div className="header">
+                    <h1>YongMining</h1>    
+                </div>
+            );
+        }
+
+        function Menubar() {
+            
+            return(
+                <div className="menubar">
+                    <div><a href="http://192.168.0.77:5500/lecture-source/11_alone/introuduce.html">자기소개</a></div>
+                    <div><a href="http://127.0.0.1:5500/11_alone/loadmap.html">개발자 로드맵</a></div>
+                    <div><a href="http://127.0.0.1:5500/11_alone/login.html">로그인</a></div>
+                </div>
+            );
+        }
+        function Menubar2() {
+            
+            return(
+                <div className="menubar2">
+                   
+                    <div><a href="http://127.0.0.1:5500/11_alone/airpage.html">여행 페이지</a></div>
+                    <div><a href="https://www.naver.com">포트폴리오</a></div>
+                    <div><a href="http://127.0.0.1:5500/11_alone/join.html">회원가입</a></div>
+                </div>
+            );
+        }
+
+        function Content() {
+
+            return (
+                <div className="content">
+                    
+                </div>
+            );
+        }
+
+        function Content1() {
+
+            return (
+                <div className="content1">
+                    <div>내가</div>
+        
+                </div>
+            );
+        }
+
+        
+        
+        function Content2() {
+
+            return (
+                <div className="content2">
+                    <div>궁금</div>
+        
+                </div>
+            );
+        }
+        
+        function Content3() {
+
+            return (
+                <div className="content3">
+                    <div>해 ?</div>
+                </div>
+            );
+        }
+        function Content4() {
+
+            return (
+                <div className="content4">
+                    <div className="image">
+                    </div>
+                </div>
+            );
+        }
+        
+        
+
+        function Footer() {
+            return (
+                <div className="footer">
+                    <p>Hello, I am YongMin
+                        <br/>
+                    If you're curious, take a look at tihs site!    
+                    </p>
+                </div>
+            );
+        }
+
+        function MainApp() {
+
+            return (
+                <div className="container">
+                    <div className="top">
+                        <Header/>
+                        <Menubar/>
+                        <Menubar2/>
+                    </div>
+                    <div className="Content">
+                    <Content1/>
+                    <Content2/>
+                    <Content3/>
+                    <Content4/>
+                    </div>
+                    <Footer/>
+                </div>
+            );
+        }
+
+        /* 17 버전 */
+        // ReactDOM.render(<TodoApp/>, document.getElementById('root'));
+
+        /* 18 버전 */
+        ReactDOM.createRoot(document.getElementById('root')).render(
+            <MainApp />
+        );
+    </script>
+</body>
+</html>
